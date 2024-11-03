@@ -87,11 +87,7 @@ public class onclick : MonoBehaviour
         kioskManager.Instance.selectedStationIndex=4;
         kioskManager.Instance.previousPanel=2;
         stationName.text = kioskManager.Instance.station[4];
-        if(!kioskManager.Instance.isElder){
-            ActivePanel(2);
-        }else{
-            ActivePanel(3);
-        }
+        ActivePanel(2);
     }
     public void A_zero(){
         A_count=0;
@@ -131,8 +127,14 @@ public class onclick : MonoBehaviour
     public void feeCount(){
         Adult.text=A_count.ToString();
         Baby.text=B_count.ToString();
-        fee.text=(A_count*5000+B_count*2400).ToString();
-        finalFee.text=(A_count*5000+B_count*2400).ToString();
+        if(kioskManager.Instance.isElder){
+            fee.text = 0.ToString();
+            finalFee.text = 0.ToString();
+        }
+        else{
+            fee.text=(A_count*5000+B_count*2400).ToString();
+            finalFee.text=(A_count*5000+B_count*2400).ToString();
+        }
     }
     public void ActivePanel(int i){
         for(int j=0;j<panelList.Count;j++){
