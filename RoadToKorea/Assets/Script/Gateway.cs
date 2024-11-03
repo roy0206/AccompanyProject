@@ -1,15 +1,29 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Gateway : MonoBehaviour
 {
     [SerializeField] Transform scene;
     [SerializeField] Gateway destination;
-    private void OnTriggerEnter2D(Collider2D collision)
+    Player player;
+
+    private void Start()
     {
-        if (collision.tag == "Player")
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" && player.isEnableTp)
         {
-            Camera.main.transform.position = scene.transform.position + new Vector3(0,0,-1);
-            collision.transform.position = destination.transform.position;
+            Camera.main.transform.position = destination.GetComponent<Gateway>().scene.transform.position + new Vector3(0,0,-1);
+            player.transform.position = destination.transform.position;
+            player.isEnableTp = false;
+            Invoke("EnablePlayerTp", 2);
         }
+    }
+
+    private void EnablePlayerTp()
+    {
+        player.isEnableTp = true;
     }
 }
