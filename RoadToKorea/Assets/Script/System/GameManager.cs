@@ -57,6 +57,12 @@ public class GameManager : Singleton<GameManager>
         currentScene = sceneName;
         stateMachine.ChangeState("InGameLayer");
     }
+
+    public void OnLanguageChanged(int index)
+    {
+        Debug.Log(index);
+        setting.Language = (Language)index;
+    }
 }
 
 
@@ -91,7 +97,7 @@ namespace StartScene
         {
             base.OnStateUpdate();
 
-            if (Input.touchCount > 0)
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
                 parentLayer.ChangeState("StartLoading");
         }
     }
