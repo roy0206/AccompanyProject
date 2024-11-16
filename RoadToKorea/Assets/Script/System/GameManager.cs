@@ -97,7 +97,7 @@ namespace StartScene
         {
             base.OnStateUpdate();
 
-            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            if (Input.touchCount > 0)
                 parentLayer.ChangeState("StartLoading");
         }
     }
@@ -111,6 +111,7 @@ namespace StartScene
         {
             asyncOperation = SceneManager.LoadSceneAsync("OutGame");
             asyncOperation.allowSceneActivation = false;
+            GameObject.Find("Canvas").transform.Find("Loading").gameObject.SetActive(true);
         }
         public override void OnStateUpdate()
         {

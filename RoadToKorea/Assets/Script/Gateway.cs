@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Gateway : MonoBehaviour
 {
+    public Transform Scene => scene;
     [SerializeField] Transform scene;
     [SerializeField] Gateway destination;
     Player player;
