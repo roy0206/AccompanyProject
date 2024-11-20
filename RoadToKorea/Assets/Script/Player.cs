@@ -27,7 +27,23 @@ public class Player : MonoBehaviour
     }
     private Action onInteracting;
     [SerializeField] Button interactionButton;
-    
+
+    public void ChangeInteractionButtonTexture(Sprite texture)
+    {
+        interactionButton.GetComponent<Image>().sprite = texture;
+    }
+
+    public void EnableMobileButtons()
+    {
+        joystick.gameObject.SetActive(true);
+        interactionButton.gameObject.SetActive(true);
+    }
+    public void DisableMobileButtons()
+    {
+        joystick.gameObject.SetActive(false);
+        interactionButton.gameObject.SetActive(false);
+    }
+
 
     private void Start()
     {

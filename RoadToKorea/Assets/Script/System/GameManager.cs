@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using StartScene;
 using System;
 using InGame;
+using System.Collections.Generic;
 
 [Serializable]
 public class Setting
@@ -12,6 +13,7 @@ public class Setting
     public Language Language { get => language; set { language = value; Translator.Instance.OnLanguageChanged(); } }
 }
 
+
 [Serializable]
 public class PlayerData
 {
@@ -19,6 +21,39 @@ public class PlayerData
     public PlayerData()
     {
         progress = 0;
+    }
+}
+public class StageParameter
+{
+    Dictionary<string, object> parameters = new();
+    public void AddParapeter(string str, object value)
+    {
+        parameters.Add(str, value);
+    }
+
+    public void AlterParameter(string str, object value)
+    {
+        try
+        {
+            parameters[str] = value;
+        }
+        catch
+        {
+            Debug.LogError("WrongParameterAlterRequest");
+        }
+    }
+
+    public object GetParameter(string str)
+    {
+        return parameters[str];
+    }
+}
+
+public class Stage1 : StageParameter
+{
+    public Stage1()
+    {
+        AddParapeter("IsTicketBought", false);
     }
 }
 
@@ -32,6 +67,7 @@ public class GameManager : Singleton<GameManager>
 
     TopLayer<GameManager> stateMachine;
     public TopLayer<GameManager> StateMachine => stateMachine;
+    public Dictionary<string, StageParameter> stageData;
 
     [SerializeField] string FSMPath;
 
@@ -40,13 +76,16 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
 
-
     new private void Awake()
     {
         base.Awake();
+        stageData = new();
+        stageData.TryAdd("Stage1", new Stage1());
         stateMachine = new GameManagerTopLayer(this);
 /*        stateMachine.onFSMChange += () => { FSMPath = stateMachine.GetCurrentFSM(); }; //FSM 경로 표시 업데이트*/
         stateMachine.OnStateEnter(); //기본 State 세팅을 해주기 때문에 생성과 동시에 발동 필요
+
+        
     }
     private void Update()
     {
@@ -136,7 +175,6 @@ namespace InGame
 {
     internal class InGameLayer : Layer<GameManager>
     {
-
         public InGameLayer(GameManager origin, Layer<GameManager> parent) : base(origin, parent)
         {
             defaultState = new InGameLoadingState(origin, this);

@@ -14,7 +14,7 @@ public class Gateway : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && player.isEnableTp)
+        if (collision.gameObject.tag == "Player" && player.isEnableTp && destination)
         {
             Camera.main.transform.position = destination.GetComponent<Gateway>().scene.transform.position + new Vector3(0,0,-1);
             player.transform.position = destination.transform.position;

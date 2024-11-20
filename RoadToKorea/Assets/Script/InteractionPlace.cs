@@ -3,11 +3,20 @@ using UnityEngine;
 public abstract class Interaction : MonoBehaviour
 {
     protected bool isInteractable = true;
+    protected Sprite buttonIcon;
+    [SerializeField] string iconLocation;
+
+    private void Awake()
+    {
+        buttonIcon = Resources.Load<Sprite>(iconLocation);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player" && InteractionCondition() && isInteractable)
         {
-            collision.GetComponent<Player>().OnInteracting += OnInteracting;
+            var player = collision.GetComponent<Player>();
+            player.OnInteracting += OnInteracting;
+            player.ChangeInteractionButtonTexture(buttonIcon);
         }
     }
 
