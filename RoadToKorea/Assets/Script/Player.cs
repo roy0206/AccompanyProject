@@ -49,19 +49,22 @@ public class Player : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-
         interactionButton.onClick.AddListener(OnInteractionButtonClicked);
     }
     void Update()
     {
-        if(joystick.Horizontal != 0  || joystick.Vertical != 0)
+        if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
-            transform.position += new Vector3(joystick.Horizontal, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
+            if(MarketManager.Instance.isSellectScene){
+                transform.position += new Vector3(0, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
+            }
+            else{
+                transform.position += new Vector3(joystick.Horizontal, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
+            }
             spriteRenderer.flipX = joystick.Horizontal > 0;
             animator.SetBool("IsWalking", true);
         }
         else animator.SetBool("IsWalking", false);
-
     }
 
     public void OnInteractionButtonClicked()
