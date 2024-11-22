@@ -200,7 +200,7 @@ Transform:
   m_GameObject: {fileID: 63381207}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 106.7, y: 85.9, z: 0}
+  m_LocalPosition: {x: 157.1, y: 97.7, z: 0}
   m_LocalScale: {x: 108.954636, y: 56.174007, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -596,7 +596,7 @@ Transform:
   m_GameObject: {fileID: 466637572}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 56.6, y: 88.3, z: -0.4904877}
+  m_LocalPosition: {x: 163.2, y: 98.8, z: -0.4904877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -689,7 +689,7 @@ Transform:
   m_GameObject: {fileID: 554641361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.2, y: 21.4, z: -0.4904877}
+  m_LocalPosition: {x: -162.3, y: 1.8, z: -0.4904877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c322c7e894ddd84f91a9be1120b3dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconLocation: 
+  iconLocation: Texture/Escalator
   destination: {fileID: 466637576}
 --- !u!61 &1721276796
 BoxCollider2D:
@@ -1565,7 +1565,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 12.05, y: 34.6}
+  m_Size: {x: 12.05, y: 20.3}
   m_EdgeRadius: 0
 --- !u!4 &1721276797
 Transform:
@@ -1576,7 +1576,7 @@ Transform:
   m_GameObject: {fileID: 1721276794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.7, y: 88.3, z: -0.4904877}
+  m_LocalPosition: {x: 7.7, y: 95.7, z: -0.4904877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1856,7 +1856,7 @@ Transform:
   m_GameObject: {fileID: 1790509755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -103.7, y: 24, z: 0}
+  m_LocalPosition: {x: -163.4, y: 1.9, z: 0}
   m_LocalScale: {x: 108.954636, y: 56.174007, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1892,7 +1892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c322c7e894ddd84f91a9be1120b3dc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iconLocation: 
+  iconLocation: Texture/Escalator
   destination: {fileID: 554641365}
 --- !u!61 &1821349192
 BoxCollider2D:
@@ -1938,7 +1938,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 13.07, y: 16.92}
+  m_Size: {x: 13.94, y: 8.4}
   m_EdgeRadius: 0
 --- !u!4 &1821349193
 Transform:
@@ -1949,7 +1949,7 @@ Transform:
   m_GameObject: {fileID: 1821349190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.1, y: 26.9, z: -0.4904877}
+  m_LocalPosition: {x: -6.2, y: 30.8, z: -0.4904877}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
