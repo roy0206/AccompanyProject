@@ -61,16 +61,25 @@ public class ButtonScript : MonoBehaviour
                buttons[0].SetActive(false);
                panel[0].SetActive(true);
                panel[1].SetActive(false);
+               panel[2].SetActive(false);
                break;
            case panel_state.setting_screen:
                buttons[0].SetActive(false);
                panel[0].SetActive(false);
                panel[1].SetActive(true);
+               panel[2].SetActive(false);
                break;
           case panel_state.no_screen:
                buttons[0].SetActive(true);
                panel[0].SetActive(false);
                panel[1].SetActive(false);
+               panel[2].SetActive(false);
+              break;
+          case panel_state.note_screen:
+               buttons[0].SetActive(false);
+               panel[0].SetActive(false);
+               panel[1].SetActive(false);
+               panel[2].SetActive(true);
               break;
        }
 
@@ -83,5 +92,10 @@ public class ButtonScript : MonoBehaviour
     public void OnClickSettingButtons()
     {
         screen_state = panel_state.setting_screen;
+    }
+
+    public void OnclickNoteButton()
+    {
+        screen_state = panel_state.note_screen;
     }
 }
