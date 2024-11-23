@@ -1133,6 +1133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 598574801}
   - component: {fileID: 598574800}
+  - component: {fileID: 598574802}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1155,6 +1156,7 @@ MonoBehaviour:
   setting:
     language: 0
   FSMPath: FSM_LOG
+  player: {fileID: 0}
 --- !u!4 &598574801
 Transform:
   m_ObjectHideFlags: 0
@@ -1170,6 +1172,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &598574802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598574799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e78fc8c74310124c8211c7d9f1dced0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: Save.json
 --- !u!1 &601652107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6097615271206025958, guid: 566691275c34e9d4eb36e5f63b7bc68a, type: 3}

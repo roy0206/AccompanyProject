@@ -7,18 +7,12 @@ using System;
 [Serializable]
 public class Database
 {
-    public int progress;
-
-
-
-
-
-
+    public PlayerData playerData;
 
 
 
     public Database()
     {
-        progress = 0;
+        playerData = new();
     }
 }

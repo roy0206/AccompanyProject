@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+public enum ViewType { TopView, SideView }
 
 public class Player : MonoBehaviour
 {
@@ -55,32 +55,35 @@ public class Player : MonoBehaviour
             animator.SetBool("IsIdle",true);
         }
     }
+
+
+    public void AlterView(ViewType t)
+    {
+        if(t == ViewType.TopView)
+        {
+            animator.SetBool("IsSideView", false);
+            animator.SetBool("IsTopView", true);
+        }
+        else if(t == ViewType.SideView)
+        {
+            animator.SetBool("IsSideView", true);
+            animator.SetBool("IsTopView", false);
+        }
+    }
     void Update()
     {
-        if(SceneManager.GetActiveScene().name=="market"&&MarketManager.Instance.isSellectScene){
-            animator.StopPlayback();
-            animator.SetBool("isSellect",true);
-        }
-        else{
-            animator.SetBool("isSellect",false);
-            animator.SetBool("IsIdle",true);
-        }
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
-            if(SceneManager.GetActiveScene().name == "market" && MarketManager.Instance.isSellectScene){
+            spriteRenderer.flipX = joystick.Horizontal > 0;
+            if (SceneManager.GetActiveScene().name == "market" && animator.GetBool("IsTopView")){
                 transform.position += new Vector3(0, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
             }
             else{
                 transform.position += new Vector3(joystick.Horizontal, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
+                animator.SetBool("IsWalking", true);
             }
-            spriteRenderer.flipX = joystick.Horizontal > 0;
-            animator.SetBool("IsIdle", false);
-            animator.SetBool("IsWalking", true);
         }
-        else{
-            animator.SetBool("IsWalking", false);
-            animator.SetBool("IsIdle", true);
-        }
+        else animator.SetBool("IsWalking", false);
     }
 
     public void OnInteractionButtonClicked()
