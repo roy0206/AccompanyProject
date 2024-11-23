@@ -24,9 +24,9 @@ public class ButtonScript : MonoBehaviour
         phone_screen,
         setting_screen,
         note_screen,
-        task_screen,
+        achieve_screen,
         map_screen,
-        bag_screen,
+        inventory_screen,
         no_screen,
     };
 
@@ -97,5 +97,19 @@ public class ButtonScript : MonoBehaviour
     public void OnclickNoteButton()
     {
         screen_state = panel_state.note_screen;
+    }
+ 
+    public void OnClickMapButtons()
+    {
+        screen_state = panel_state.map_screen;
+    }
+
+    public void OnclickInventoryButton()
+    {
+        screen_state = panel_state.inventory_screen;
+    }
+    public void OnclickAchieveButton()
+    {
+        screen_state = panel_state.achieve_screen;
     }
 }
