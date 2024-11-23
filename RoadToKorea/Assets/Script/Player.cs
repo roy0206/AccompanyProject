@@ -16,7 +16,9 @@ public class Player : MonoBehaviour
     Animator animator;
     Sprite sp;
 
+    public GameObject finpoint;
 
+    public LineRenderer line;
     //Interaction
     public bool IsActivated
     {
@@ -49,6 +51,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+     
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         interactionButton.onClick.AddListener(OnInteractionButtonClicked);
@@ -104,4 +107,5 @@ public class Player : MonoBehaviour
         onInteracting.Invoke();
         onInteracting = null;
     }
+    
 }
