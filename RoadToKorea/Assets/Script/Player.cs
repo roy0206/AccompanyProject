@@ -10,10 +10,11 @@ public class Player : MonoBehaviour
 
     [SerializeField] Joystick joystick;
 
-    [SerializeField] float moveSpeed;
+    public float moveSpeed;
 
     SpriteRenderer spriteRenderer;
     Animator animator;
+    Sprite sp;
 
 
     //Interaction
@@ -55,6 +56,9 @@ public class Player : MonoBehaviour
             animator.SetBool("IsIdle",true);
         }
 
+
+        sp = interactionButton.image.sprite;
+
         AlterView(ViewType.SideView);
     }
 
@@ -74,6 +78,11 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        if (!GameManager.Instance.IsControllable) return;
+        if (!IsActivated)
+        {
+            interactionButton.image.sprite = sp;
+        }
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             spriteRenderer.flipX = joystick.Horizontal > 0;
@@ -90,6 +99,7 @@ public class Player : MonoBehaviour
 
     public void OnInteractionButtonClicked()
     {
+        if (!GameManager.Instance.IsControllable) return;
         if (!IsActivated) return;
         onInteracting.Invoke();
         onInteracting = null;

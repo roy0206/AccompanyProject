@@ -143,7 +143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &137199183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1155,7 +1155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   setting:
     language: 0
+    contry: 0
+    chrac: 0
   FSMPath: FSM_LOG
+  IsControllable: 0
   player: {fileID: 0}
 --- !u!4 &598574801
 Transform:

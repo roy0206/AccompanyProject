@@ -153,6 +153,8 @@ public class onclick : MonoBehaviour
     public void CloseUi()
     {
         Camera.main.transform.position = fromScene.Scene.transform.position + new Vector3(0, 0, -1);
+        GameManager.Instance.player.EnableMobileButtons();
+        GameManager.Instance.stageData["Stage1"].AlterParameter("IsTicketBought", true);
     }
 
     public void OpenUi()

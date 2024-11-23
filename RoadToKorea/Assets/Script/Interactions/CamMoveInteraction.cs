@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class CamMoveInteraction : Interaction
 {
-    [SerializeField] Transform destination;
-    [SerializeField] bool disableMobileUi;
+    [SerializeField] protected Transform destination;
+    [SerializeField] protected bool disableMobileUi;
     public override bool InteractionCondition()
     {
         return true;

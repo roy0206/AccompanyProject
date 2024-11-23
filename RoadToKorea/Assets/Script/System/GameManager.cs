@@ -9,8 +9,8 @@ using System.Collections.Generic;
 [Serializable]
 public class Setting
 {
-    [SerializeField] Language_select language;
-    public Language_select Language { get => language; set { language = value; Translator.Instance.OnLanguageChanged(); } }
+    [SerializeField] LanguageState language;
+    public LanguageState Language { get => language; set { language = value; Translator.Instance.OnLanguageChanged(); } }
 
     public Country contry;
     public Chracter chrac;
@@ -77,6 +77,8 @@ public class GameManager : Singleton<GameManager>
 
     [SerializeField] string FSMPath;
 
+    public bool IsControllable;
+
     #region
     internal string currentScene;
     #endregion
@@ -91,6 +93,7 @@ public class GameManager : Singleton<GameManager>
         stateMachine = new GameManagerTopLayer(this);
 /*        stateMachine.onFSMChange += () => { FSMPath = stateMachine.GetCurrentFSM(); }; //FSM ��� ǥ�� ������Ʈ*/
         stateMachine.OnStateEnter(); //�⺻ State ������ ���ֱ� ������ ������ ���ÿ� �ߵ� �ʿ�
+        IsControllable = true;
     }
     private void Update()
     {
@@ -105,7 +108,7 @@ public class GameManager : Singleton<GameManager>
     public void OnLanguageChanged(int index)
     {
         Debug.Log(index);
-        setting.Language = (Language_select)index;
+        setting.Language = (LanguageState)index;
     }
 }
 

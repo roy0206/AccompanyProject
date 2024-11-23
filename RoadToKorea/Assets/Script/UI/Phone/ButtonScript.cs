@@ -5,12 +5,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Language_select
-{
-    korean,
-    english,
-    japanese
-};
 public class ButtonScript : MonoBehaviour
 {
     public Slider Slider_Sound;
@@ -22,7 +16,7 @@ public class ButtonScript : MonoBehaviour
     public float Sound = 1f;
     public Text SoundText;
  
-    public Language_select Language_state;
+    public LanguageState Language_state;
 
     private int Sound_hundred;
     public enum panel_state
@@ -49,13 +43,13 @@ public class ButtonScript : MonoBehaviour
         switch (Language.value)
         {
             case 0 :
-               //GameManager.Instance.Settings.Language = LanguageState.Korean;
+                GameManager.Instance.Settings.Language = LanguageState.Korean;
                 break;
             case 1 :
-                //GameManager.Instance.Settings.Language = LanguageState.English;
+                GameManager.Instance.Settings.Language = LanguageState.English;
                 break;
             case 2 : 
-                //GameManager.Instance.Settings.Language = LanguageState.Japanese;
+                GameManager.Instance.Settings.Language = LanguageState.Japanese;
                 break;
         }
        Debug.Log(Language_state);
