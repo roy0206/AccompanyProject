@@ -36,64 +36,52 @@ public class Client : MonoBehaviour
         {
             case 0:
                 selction[0].SetActive(true);
-                selction[2].SetActive(false);
                 selction[1].SetActive(false);
                 break;
             case 1:
                 selction[1].SetActive(true);
                 selction[0].SetActive(false);
-                selction[2].SetActive(false);
                 break;
             case 2:
                 selction[0].SetActive(false);
-                selction[1].SetActive(false);
-                selction[2].SetActive(true);
-                break;
-            case 3:
+                selction[1].SetActive(false);  
                 SceneManager.LoadScene("OutGame");
+                
                 break;
+           
+           
                
             
         }
     }
 
-    public void OnClickHardMode()
-    {
-        //GameManager.Instance.PlayerData.hard = true;
-        selection = 1;
-    }
-    public void OnClickEasyMode()
-    {
-        //GameManager.Instance.PlayerData.hard = false;
-        selection = 1;
-
-    }
+    
 
     public void OnClickJap()
     {
        // GameManager.Instance.Settings.contry = Country.Japan;
-        selection = 2;
+        selection = 1;
     }
     public void OnClickAus()
     {
        // GameManager.Instance.Settings.contry = Country.Australia;
-        selection = 2;
+        selection = 1;
     }
     public void OnClickAme()
     {
        // GameManager.Instance.Settings.contry = Country.America;
-        selection = 2;
+        selection = 1;
     }
 
     public void OnClickman()
     {
        // GameManager.Instance.Settings.chrac = Chracter.man;
-        selection = 3;
+        selection = 2;
     }
 
     public void OnClickwom()
     {
        // GameManager.Instance.Settings.chrac = Chracter.woman;
-        selection = 3;
+        selection = 2;
     }
 }
