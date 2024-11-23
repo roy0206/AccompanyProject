@@ -75,6 +75,7 @@ public class GameManager : Singleton<GameManager>
     internal string currentScene;
     #endregion
 
+    public Player player;
 
     new private void Awake()
     {
@@ -84,8 +85,6 @@ public class GameManager : Singleton<GameManager>
         stateMachine = new GameManagerTopLayer(this);
 /*        stateMachine.onFSMChange += () => { FSMPath = stateMachine.GetCurrentFSM(); }; //FSM 경로 표시 업데이트*/
         stateMachine.OnStateEnter(); //기본 State 세팅을 해주기 때문에 생성과 동시에 발동 필요
-
-        
     }
     private void Update()
     {
@@ -148,6 +147,7 @@ namespace StartScene
 
         public override void OnStateEnter()
         {
+            base.OnStateEnter();
             asyncOperation = SceneManager.LoadSceneAsync("OutGame");
             asyncOperation.allowSceneActivation = false;
             GameObject.Find("Canvas").transform.Find("Loading").gameObject.SetActive(true);
@@ -192,6 +192,7 @@ namespace InGame
 
         public override void OnStateEnter()
         {
+            base.OnStateEnter();
             asyncOperation = SceneManager.LoadSceneAsync(origin.currentScene);
             asyncOperation.allowSceneActivation = false;
 
@@ -220,6 +221,15 @@ namespace InGame
         public InGameDefault(GameManager origin, Layer<GameManager> parent) : base(origin, parent)
         {
 
+        }
+        public override void OnStateLateEnter()
+        {
+            base.OnStateLateEnter();
+            origin.player = GameObject.Find("Player").GetComponent<Player>();
+        }
+        public override void OnStateUpdate()
+        {
+            base.OnStateUpdate();
         }
     }
 

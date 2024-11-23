@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +13,10 @@ public class onclick : MonoBehaviour
     public Text Baby;
     public int A_count=0;
     public int B_count=0;
+    Gateway destination;
     void Start()
     {
+        destination = GetComponent<Gateway>();
         kioskManager.Instance.previousPanel=0;
         ActivePanel(0);
     }
@@ -141,5 +144,12 @@ public class onclick : MonoBehaviour
             panelList[j].SetActive(false);
         }
         panelList[i].SetActive(true);
+    }
+
+
+
+    public void OpenUi()
+    {
+        Camera.main.transform.position = destination.Scene.transform.position + new Vector3(0, 0, -1);
     }
 }

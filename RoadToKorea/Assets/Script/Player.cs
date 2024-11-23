@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -55,7 +56,7 @@ public class Player : MonoBehaviour
     {
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
-            if(MarketManager.Instance.isSellectScene){
+            if(SceneManager.GetActiveScene().name == "market" && MarketManager.Instance.isSellectScene){
                 transform.position += new Vector3(0, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
             }
             else{
