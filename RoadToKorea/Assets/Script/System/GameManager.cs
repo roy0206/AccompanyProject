@@ -9,8 +9,11 @@ using System.Collections.Generic;
 [Serializable]
 public class Setting
 {
-    [SerializeField] LanguageState language;
-    public LanguageState Language { get => language; set { language = value; Translator.Instance.OnLanguageChanged(); } }
+    [SerializeField] Language_select language;
+    public Language_select Language { get => language; set { language = value; Translator.Instance.OnLanguageChanged(); } }
+
+    public Country contry;
+    public Chracter chrac;
 }
 
 
@@ -102,7 +105,7 @@ public class GameManager : Singleton<GameManager>
     public void OnLanguageChanged(int index)
     {
         Debug.Log(index);
-        setting.Language = (LanguageState)index;
+        setting.Language = (Language_select)index;
     }
 }
 
