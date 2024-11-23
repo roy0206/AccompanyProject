@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
-   
+    public Slider Slider_Sound;
     public List<GameObject> panel;
     public List<GameObject> buttons;
-
+    public float Sound = 1f;
+    public Text SoundText;
     public Dropdown Language;
     public enum Language_select
     {
@@ -30,12 +31,14 @@ public class ButtonScript : MonoBehaviour
         no_screen,
     };
 
+    private int Sound_hundred;
     public panel_state screen_state;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         screen_state = panel_state.no_screen;
+        Slider_Sound.value = Sound;
     }
 
     // Update is called once per frame
@@ -44,13 +47,13 @@ public class ButtonScript : MonoBehaviour
         switch (Language.value)
         {
             case 0 :
-                GameManager.Instance.Settings.Language = LanguageState.Korean;
+               // GameManager.Instance.Settings.Language = LanguageState.Korean;
                 break;
             case 1 :
-                GameManager.Instance.Settings.Language = LanguageState.English;
+                //GameManager.Instance.Settings.Language = LanguageState.English;
                 break;
             case 2 : 
-                GameManager.Instance.Settings.Language = LanguageState.Japanese;
+                //GameManager.Instance.Settings.Language = LanguageState.Japanese;
                 break;
         }
        Debug.Log(Language_state);
@@ -68,6 +71,7 @@ public class ButtonScript : MonoBehaviour
                panel[0].SetActive(false);
                panel[1].SetActive(true);
                panel[2].SetActive(false);
+               OnChangedSoundValue();
                break;
           case panel_state.no_screen:
                buttons[0].SetActive(true);
@@ -80,6 +84,10 @@ public class ButtonScript : MonoBehaviour
                panel[0].SetActive(false);
                panel[1].SetActive(false);
                panel[2].SetActive(true);
+              break;
+          case panel_state.achieve_screen:
+              break;
+          case panel_state.inventory_screen:
               break;
        }
 
@@ -112,4 +120,18 @@ public class ButtonScript : MonoBehaviour
     {
         screen_state = panel_state.achieve_screen;
     }
+
+    public void OnChangedSoundValue()
+    {
+        Sound = Slider_Sound.value;
+        Sound_hundred = (int)(Sound * 100);
+        SoundText.text = Sound_hundred + "%";
+    }
+
+    public void OnReturnButton()
+    {
+        screen_state = panel_state.phone_screen;
+    }
+
+  
 }
