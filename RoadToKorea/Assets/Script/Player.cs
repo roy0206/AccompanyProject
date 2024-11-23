@@ -63,9 +63,13 @@ public class Player : MonoBehaviour
                 transform.position += new Vector3(joystick.Horizontal, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
             }
             spriteRenderer.flipX = joystick.Horizontal > 0;
+            animator.SetBool("IsIdle", false);
             animator.SetBool("IsWalking", true);
         }
-        else animator.SetBool("IsWalking", false);
+        else{
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsIdle", true);
+        }
     }
 
     public void OnInteractionButtonClicked()
