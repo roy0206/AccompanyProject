@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MarketManager : Singleton<MarketManager>
 {
@@ -16,7 +17,7 @@ public class MarketManager : Singleton<MarketManager>
     }
     void Update()
     {
-        if(player.transform.position.x != 0){
+        if(player.transform.position.x != 0 && SceneManager.GetActiveScene().name=="market"){
             isSellectScene=false;
         }
     }
