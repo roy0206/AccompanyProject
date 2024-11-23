@@ -11,11 +11,7 @@ public enum Country
     America
 };
 
-public enum Chracter
-{
-    woman,
-    man
-};
+
 public class Client : MonoBehaviour
 {
     private int selection = 0;
@@ -41,14 +37,8 @@ public class Client : MonoBehaviour
             case 1:
                 selction[1].SetActive(true);
                 selction[0].SetActive(false);
-                break;
-            case 2:
-                selction[0].SetActive(false);
-                selction[1].SetActive(false);  
                 SceneManager.LoadScene("OutGame");
-                
                 break;
-           
            
                
             
@@ -73,15 +63,5 @@ public class Client : MonoBehaviour
         selection = 1;
     }
 
-    public void OnClickman()
-    {
-       // GameManager.Instance.Settings.chrac = Chracter.man;
-        selection = 2;
-    }
 
-    public void OnClickwom()
-    {
-       // GameManager.Instance.Settings.chrac = Chracter.woman;
-        selection = 2;
-    }
 }

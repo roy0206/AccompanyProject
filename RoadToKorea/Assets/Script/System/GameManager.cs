@@ -13,7 +13,7 @@ public class Setting
     public LanguageState Language { get => language; set { language = value; Translator.Instance.OnLanguageChanged(); } }
 
     public Country contry;
-    public Chracter chrac;
+
 }
 
 
