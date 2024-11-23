@@ -15,7 +15,9 @@ public class Player : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
 
+    public GameObject finpoint;
 
+    public LineRenderer line;
     //Interaction
     public bool IsActivated
     {
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+     
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         interactionButton.onClick.AddListener(OnInteractionButtonClicked);
@@ -72,6 +75,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             spriteRenderer.flipX = joystick.Horizontal > 0;
@@ -92,4 +96,5 @@ public class Player : MonoBehaviour
         onInteracting.Invoke();
         onInteracting = null;
     }
+    
 }
