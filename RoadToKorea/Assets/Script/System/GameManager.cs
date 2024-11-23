@@ -18,9 +18,12 @@ public class Setting
 public class PlayerData
 {
     public int progress;
+    public bool hard;
+    
     public PlayerData()
     {
         progress = 0;
+        hard = false;
     }
 }
 public class StageParameter
@@ -83,8 +86,8 @@ public class GameManager : Singleton<GameManager>
         stageData = new();
         stageData.TryAdd("Stage1", new Stage1());
         stateMachine = new GameManagerTopLayer(this);
-/*        stateMachine.onFSMChange += () => { FSMPath = stateMachine.GetCurrentFSM(); }; //FSM °æ·Î Ç¥½Ã ¾÷µ¥ÀÌÆ®*/
-        stateMachine.OnStateEnter(); //±âº» State ¼¼ÆÃÀ» ÇØÁÖ±â ¶§¹®¿¡ »ý¼º°ú µ¿½Ã¿¡ ¹ßµ¿ ÇÊ¿ä
+/*        stateMachine.onFSMChange += () => { FSMPath = stateMachine.GetCurrentFSM(); }; //FSM ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®*/
+        stateMachine.OnStateEnter(); //ï¿½âº» State ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ö±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¿ï¿½ ï¿½ßµï¿½ ï¿½Ê¿ï¿½
     }
     private void Update()
     {
@@ -156,8 +159,8 @@ namespace StartScene
         {
             base.OnStateUpdate();
 
-            currentLoadingTime += Time.deltaTime; //½Ã°£À» ´õÇØÁÜ
-            Debug.Log(asyncOperation.progress); //·ÎµùÀÌ ¾ó¸¶³ª ¿Ï·áµÇ¾ú´ÂÁö 0~1ÀÇ °ªÀ¸·Î º¸¿©ÁÜ
+            currentLoadingTime += Time.deltaTime; //ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            Debug.Log(asyncOperation.progress); //ï¿½Îµï¿½ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ 0~1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
             if (currentLoadingTime > minimumLoadingTime)
             {
@@ -202,8 +205,8 @@ namespace InGame
         {
             base.OnStateUpdate();
 
-            currentLoadingTime += Time.deltaTime; //½Ã°£À» ´õÇØÁÜ
-            Debug.Log(asyncOperation.progress); //·ÎµùÀÌ ¾ó¸¶³ª ¿Ï·áµÇ¾ú´ÂÁö 0~1ÀÇ °ªÀ¸·Î º¸¿©ÁÜ
+            currentLoadingTime += Time.deltaTime; //ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            Debug.Log(asyncOperation.progress); //ï¿½Îµï¿½ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½ 0~1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
             if (currentLoadingTime > minimumLoadingTime)
             {
@@ -268,8 +271,8 @@ internal class SubStateMachineThatDoesNotUseDefaultState : Layer<GameManager>
     }
     public override void OnStateEnter()
     {
-        //base.OnStateEnter(); defaultState¸¦ »ç¿ëÇÒ °Å¸é ÁÖ¼® ÇØÁ¦
-        if (Input.GetKey(KeyCode.R)) //RÀ» ´©¸¥ Ã¤·Î ½ºÅ×ÀÌÆ® ÁøÀÔ ½Ã State1, ¾Æ´Ï¸é State2
+        //base.OnStateEnter(); defaultStateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ï¿½ï¿½
+        if (Input.GetKey(KeyCode.R)) //Rï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ State1, ï¿½Æ´Ï¸ï¿½ State2
         {
             currentState = states["State1"];
         }

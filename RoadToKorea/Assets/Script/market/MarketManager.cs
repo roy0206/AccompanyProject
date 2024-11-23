@@ -21,7 +21,7 @@ public class MarketManager : Singleton<MarketManager>
     }
     void Update()
     {
-        if(player.transform.position.x != 0 && SceneManager.GetActiveScene().name=="market"){
+        if(!(player.transform.position.x <= 8 && player.transform.position.x>=-8) && SceneManager.GetActiveScene().name=="market"){
             player.GetComponent<Player>().AlterView(ViewType.SideView);
         }
     }
