@@ -54,6 +54,8 @@ public class Player : MonoBehaviour
         if(SceneManager.GetActiveScene().name != "market"){
             animator.SetBool("IsIdle",true);
         }
+
+        AlterView(ViewType.SideView);
     }
 
 
