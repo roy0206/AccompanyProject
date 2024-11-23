@@ -47,7 +47,7 @@ public class ButtonScript : MonoBehaviour
         switch (Language.value)
         {
             case 0 :
-               // GameManager.Instance.Settings.Language = LanguageState.Korean;
+               //GameManager.Instance.Settings.Language = LanguageState.Korean;
                 break;
             case 1 :
                 //GameManager.Instance.Settings.Language = LanguageState.English;
