@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
         {
             spriteRenderer.flipX = joystick.Horizontal > 0;
             if (SceneManager.GetActiveScene().name == "market" && animator.GetBool("IsTopView")){
-                transform.position += new Vector3(0, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
+                transform.position += new Vector3(joystick.Horizontal, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
             }
             else{
                 transform.position += new Vector3(joystick.Horizontal, joystick.Vertical, 0) * moveSpeed * Time.deltaTime;
