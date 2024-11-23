@@ -10,6 +10,7 @@ public class onclick : MonoBehaviour
     public Text fee;
     public Text finalFee;
     public Text Adult;
+    public Text Elder;
     public Text Baby;
     public int A_count=0;
     public int B_count=0;
@@ -49,48 +50,47 @@ public class onclick : MonoBehaviour
     public void seoul(){
         kioskManager.Instance.selectedStationIndex=0;
         kioskManager.Instance.previousPanel=2;
-        if(!kioskManager.Instance.isElder){
-            ActivePanel(2);
-        }else{
-            ActivePanel(3);
+        if(kioskManager.Instance.isElder){
+            ActivePanel(4);
         }
+        else ActivePanel(2);
         stationName.text = kioskManager.Instance.station[0];
     }
     public void gongdeok(){
         kioskManager.Instance.selectedStationIndex=1;
         kioskManager.Instance.previousPanel=2;
         stationName.text = kioskManager.Instance.station[1];
-        if(!kioskManager.Instance.isElder){
-            ActivePanel(2);
-        }else{
-            ActivePanel(3);
+        if(kioskManager.Instance.isElder){
+            ActivePanel(4);
         }
+        else ActivePanel(2);
     }
     public void hongdea(){
         kioskManager.Instance.selectedStationIndex=2;
         kioskManager.Instance.previousPanel=2;
         stationName.text = kioskManager.Instance.station[2];
-        if(!kioskManager.Instance.isElder){
-            ActivePanel(2);
-        }else{
-            ActivePanel(3);
+        if(kioskManager.Instance.isElder){
+            ActivePanel(4);
         }
+        else ActivePanel(2);
     }
     public void gimpo(){
         kioskManager.Instance.selectedStationIndex=3;
         kioskManager.Instance.previousPanel=2;
         stationName.text = kioskManager.Instance.station[3];
-        if(!kioskManager.Instance.isElder){
-            ActivePanel(2);
-        }else{
-            ActivePanel(3);
+        if(kioskManager.Instance.isElder){
+            ActivePanel(4);
         }
+        else ActivePanel(2);
     }
     public void incheon(){
         kioskManager.Instance.selectedStationIndex=4;
         kioskManager.Instance.previousPanel=2;
         stationName.text = kioskManager.Instance.station[4];
-        ActivePanel(2);
+        if(kioskManager.Instance.isElder){
+            ActivePanel(4);
+        }
+        else ActivePanel(2);
     }
     public void A_zero(){
         A_count=0;
@@ -125,12 +125,16 @@ public class onclick : MonoBehaviour
         B_count=5;
     }
     public void pur(){
-        ActivePanel(3);
+        if(kioskManager.Instance.isElder){
+            ActivePanel(4);
+        }
+        else ActivePanel(3);
     }
     public void feeCount(){
         Adult.text=A_count.ToString();
         Baby.text=B_count.ToString();
         if(kioskManager.Instance.isElder){
+            Elder.text=1.ToString();
             fee.text = 0.ToString();
             finalFee.text = 0.ToString();
         }
