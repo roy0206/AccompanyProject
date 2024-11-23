@@ -15,20 +15,18 @@ public class MarketManager : Singleton<MarketManager>
     {
         playerRenderer = player.GetComponent<SpriteRenderer>();
         animator = player.GetComponent<Animator>();
-        animator.SetBool("IsIdle",false);
-        animator.SetBool("isWaking",false);
-        animator.SetBool("isSellect",true);
+        animator.SetBool("IsWalking",false);
         playerRenderer.enabled = false;
         OnFrontPanelClicked+=playerActive;
     }
     void Update()
     {
         if(player.transform.position.x != 0 && SceneManager.GetActiveScene().name=="market"){
-            isSellectScene=false;
+            player.GetComponent<Player>().AlterView(ViewType.SideView);
         }
     }
     private void playerActive(){
-        isSellectScene = true;
+        player.GetComponent<Player>().AlterView(ViewType.TopView);
         playerRenderer.enabled = true;
     }
 }
