@@ -40,7 +40,7 @@ public class ButtonScript : MonoBehaviour
     {
         Slider_Sound.value = Sound;
         screen_state = panel_state.no_screen;
-        Language_state = GameManager.Instance.Settings.Language;
+        //Language_state = GameManager.Instance.Settings.Language;
     }
 
     // Update is called once per frame
@@ -74,7 +74,7 @@ public class ButtonScript : MonoBehaviour
                panel[0].SetActive(false);
                panel[1].SetActive(false);
                panel[2].SetActive(false);
-               panel[3].SetActive(false);
+               panel[3].SetActive(true);
               break;
           case panel_state.note_screen:
                buttons[0].SetActive(false);
@@ -82,7 +82,7 @@ public class ButtonScript : MonoBehaviour
                panel[1].SetActive(false);
                panel[2].SetActive(true);
                panel[3].SetActive(false);
-               break;
+               break;               
            case panel_state.setting_screen:
                buttons[0].SetActive(false);
                panel[0].SetActive(false);
@@ -124,6 +124,10 @@ public class ButtonScript : MonoBehaviour
     {
         screen_state = panel_state.phone_screen;
     }
-    
+
+    public void OnNoScreen()
+    {
+        screen_state = panel_state.no_screen;
+    }
         
 }
