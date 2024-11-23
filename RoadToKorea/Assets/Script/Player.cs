@@ -51,9 +51,20 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         interactionButton.onClick.AddListener(OnInteractionButtonClicked);
+        if(SceneManager.GetActiveScene().name != "market"){
+            animator.SetBool("IsIdle",true);
+        }
     }
     void Update()
     {
+        if(SceneManager.GetActiveScene().name=="market"&&MarketManager.Instance.isSellectScene){
+            animator.StopPlayback();
+            animator.SetBool("isSellect",true);
+        }
+        else{
+            animator.SetBool("isSellect",false);
+            animator.SetBool("IsIdle",true);
+        }
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             if(SceneManager.GetActiveScene().name == "market" && MarketManager.Instance.isSellectScene){

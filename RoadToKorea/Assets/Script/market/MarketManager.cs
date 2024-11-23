@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +10,14 @@ public class MarketManager : Singleton<MarketManager>
 
     public Action OnFrontPanelClicked;
     private SpriteRenderer playerRenderer;
+    private Animator animator;
     void Start()
     {
         playerRenderer = player.GetComponent<SpriteRenderer>();
+        animator = player.GetComponent<Animator>();
+        animator.SetBool("IsIdle",false);
+        animator.SetBool("isWaking",false);
+        animator.SetBool("isSellect",true);
         playerRenderer.enabled = false;
         OnFrontPanelClicked+=playerActive;
     }
