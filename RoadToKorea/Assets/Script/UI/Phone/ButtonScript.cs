@@ -43,14 +43,14 @@ public class ButtonScript : MonoBehaviour
     {   //언어 설정
         switch (Language.value)
         {
-            case 0 : 
-                Language_state = Language_select.korean;
+            case 0 :
+                GameManager.Instance.Settings.Language = LanguageState.Korean;
                 break;
             case 1 :
-                Language_state = Language_select.english;
+                GameManager.Instance.Settings.Language = LanguageState.English;
                 break;
             case 2 : 
-                Language_state = Language_select.japanese;
+                GameManager.Instance.Settings.Language = LanguageState.Japanese;
                 break;
         }
        Debug.Log(Language_state);

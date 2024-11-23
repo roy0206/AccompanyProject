@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public enum Language { Korean, English}
+public enum LanguageState { Korean, English, Japanese }
 
 public class Translator : Singleton<Translator>
 {
