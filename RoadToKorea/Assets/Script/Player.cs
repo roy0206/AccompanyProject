@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,10 +17,6 @@ public class Player : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
     Sprite sp;
-
-    public GameObject finpoint;
-
-    public LineRenderer line;
     //Interaction
     public bool IsActivated
     {
@@ -51,14 +49,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-     
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         interactionButton.onClick.AddListener(OnInteractionButtonClicked);
-        if(SceneManager.GetActiveScene().name != "market"){
-            animator.SetBool("IsIdle",true);
-        }
-
 
         sp = interactionButton.image.sprite;
 

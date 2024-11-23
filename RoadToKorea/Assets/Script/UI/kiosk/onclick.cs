@@ -54,7 +54,7 @@ public class onclick : MonoBehaviour
             ActivePanel(4);
         }
         else ActivePanel(2);
-        stationName.text = kioskManager.Instance.station[0];
+/*        stationName.text = kioskManager.Instance.station[0];*/
     }
     public void gongdeok(){
         kioskManager.Instance.selectedStationIndex=1;

@@ -58,10 +58,11 @@ public class TagFunction : MonoBehaviour
         Camera.main.transform.position = destination.Scene.transform.position + new Vector3(0, 0, -10);
         GameManager.Instance.player.transform.position = destination.transform.position + new Vector3(0,0,-5);
         PersistedCanvasManager.Instance.FadeIn(0.5f);
-        enabled = false;
         GameManager.Instance.player.EnableMobileButtons();
         yield return new WaitForSeconds(0.5f);
         PersistedCanvasManager.Instance.FadeOut(0.5f);
+        enabled = false;
+
     }
 
 
