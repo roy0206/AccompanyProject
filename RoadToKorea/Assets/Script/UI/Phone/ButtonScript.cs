@@ -61,21 +61,21 @@ public class ButtonScript : MonoBehaviour
                panel[0].SetActive(true);
                panel[1].SetActive(false);
                panel[2].SetActive(false);
-               panel[3].SetActive(false);
+
                break;
           case panel_state.no_screen:
                buttons[0].SetActive(true);
                panel[0].SetActive(false);
                panel[1].SetActive(false);
                panel[2].SetActive(false);
-               panel[3].SetActive(true);
+
               break;
           case panel_state.note_screen:
                buttons[0].SetActive(false);
                panel[0].SetActive(false);
                panel[1].SetActive(false);
                panel[2].SetActive(true);
-               panel[3].SetActive(false);
+
                break;               
            case panel_state.setting_screen:
                buttons[0].SetActive(false);
@@ -83,7 +83,7 @@ public class ButtonScript : MonoBehaviour
                panel[1].SetActive(true);
                panel[2].SetActive(false);
                OnChangedSoundValue();
-               panel[3].SetActive(false);
+
                break;
        }
 
