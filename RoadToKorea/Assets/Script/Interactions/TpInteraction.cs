@@ -6,6 +6,7 @@ public class TpInteraction : Interaction
     Player player;
     private void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
         
     }
     public override bool InteractionCondition()
@@ -15,7 +16,6 @@ public class TpInteraction : Interaction
 
     public override void OnInteracting()
     {
-        player = GameManager.Instance.player;
         Camera.main.transform.position = destination.Scene.transform.position + new Vector3(0, 0, -1);
         player.transform.position = destination.transform.position;
         player.isEnableTp = false;
